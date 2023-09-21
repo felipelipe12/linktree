@@ -1,6 +1,7 @@
 :root {
     --dark-color: #333333;
     --light-color: #FFFFFF;
+    --gray-color: #9d9d9d;
 }
 
 .light {
@@ -69,11 +70,17 @@ section .container .toggle button {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slide-out .5s;
+    transition: .5s;
+}
+
+section .container .toggle button:hover {
+    cursor: pointer;
+    outline: 5px solid var(--gray-color);
 }
 
 .light section .container .toggle button {
-    right: 0;
-    left: initial;
+    animation: slide-in .5s forwards;
 }
 
 section .container .toggle span {
@@ -129,4 +136,24 @@ section .container .socials a:hover {
 
 section .container .copyright a {
     color: var(--light-color);
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }
